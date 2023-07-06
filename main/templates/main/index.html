@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+    <title>{{title}}</title>
+</head>
+<body>
+<!--     <ul>
+        {% for c in card %}
+        <li><a href="">{{c}}</a></li>
+        {% endfor %}
+    </ul> -->
+<!-- 
+    <ul>
+        {% for c in card %}
+        {% if c.hidden is False %}
+        <li>
+            <h3>{{c.title}}</h3>
+            <img src='{{c.img.url}}' alt="">
+            <p>{{c.content}}</p>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul> -->
+    {% for c in card %}
+    {% if c.hidden is False %}
+    <div class='card'>
+        {% if c.img %}
+        <img id="img" src="{{c.img.url}}" alt="Фоточка">
+        {% endif %}
+        <div class='card-info'>
+          <p id="name">{{ c.title }}</p>
+          <div class='card-languages'> 
+            <img src="../../static/main/img/html.png" alt="">
+            <img src="../../static/main/img/css.svg" alt="">
+            <img src="../../static/main/img/js.png" alt="">
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+</body>
+</html>
